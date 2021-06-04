@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lessons",
+  "info": {
+    "name": "lesson",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "lessonNo": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "level": {
+      "via": "lessons",
+      "model": "level"
+    },
+    "key": {
+      "type": "uid",
+      "required": true
+    },
+    "levelNo": {
+      "type": "integer"
+    },
+    "pages": {
+      "via": "lesson",
+      "collection": "page"
+    }
+  }
+}

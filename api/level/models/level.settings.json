@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "levels",
+  "info": {
+    "name": "level",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "levelNo": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "string"
+    },
+    "lessons": {
+      "via": "level",
+      "collection": "lesson"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}
